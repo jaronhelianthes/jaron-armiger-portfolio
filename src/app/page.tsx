@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect } from 'react';
 import Crest from "@/components/shared/Crest";
 import SectionDivider from "@/components/shared/SectionDivider";
 import HeroSection from "@/components/sections/HeroSection";
@@ -11,15 +14,41 @@ import ContactSection from "@/components/sections/ContactSection";
 import { IDENTITY } from "@/lib/constants";
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 10) {
+        // Always show navbar at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY]);
+
   return (
     <>
       {/* Navigation */}
       <nav
-        className="fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-4 md:px-12"
+        className="fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-4 md:px-12  transition-transform duration-300 ease-in-out"
         style={{
           backgroundColor: "rgba(250, 249, 246, 0.9)",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid var(--color-border)",
+          transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
         }}
       > 
         

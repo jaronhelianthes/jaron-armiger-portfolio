@@ -16,7 +16,7 @@ export default function HeroSection() {
       >
         <div className="flex flex-col items-center text-center">
           {/* The Crest — coat of arms, the first thing you see */}
-          <Crest size={100} className="mb-14" />
+          {/* <Crest size={100} className="mb-14" /> */}
           <div className="shadow-xl rounded-lg  mb-5">
             <Image
               src="/prof_square.jpg"

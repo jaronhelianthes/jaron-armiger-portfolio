@@ -17,13 +17,13 @@ export default function HeroSection() {
         <div className="flex flex-col items-center text-center">
           {/* The Crest — coat of arms, the first thing you see */}
           {/* <Crest size={100} className="mb-14" /> */}
-          <div className="shadow-xl rounded-lg  mb-5">
+          <div className=" mb-5">
             <Image
-              src="/prof_square.jpg"
+              src="/prof_circle.png"
               alt="Helianthes Studio crest"
               width={100}
               height={100}
-              className="object-contain rounded-lg shadow-xl drop-shadow-xl"
+              className="object-contain"
               style={{ filter: 'drop-shadow(8px 8px 2px rgba(0, 0, 0, 0.5))' }}
               priority
             />

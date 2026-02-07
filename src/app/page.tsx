@@ -25,7 +25,7 @@ export default function Home() {
         
         
         <span
-          className="text-lg tracking-widest uppercase"
+          className="text-md tracking-widest uppercase"
           style={{ color: "var(--color-fg)", letterSpacing: "0.15em" }}
         >
           {IDENTITY.name}
